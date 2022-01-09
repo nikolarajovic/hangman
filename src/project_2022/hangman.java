@@ -98,6 +98,14 @@ public class hangman {
 		}
 	}
 	
+	public static void bingo(char guess, char[] letters, boolean[] guessed) {
+		for (int i = 0; i < guessed.length; i++) {
+			if (guess == letters[i]) {
+				guessed[i] = true;
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("*** WELCOME TO HANGMAN ***");
@@ -113,7 +121,10 @@ public class hangman {
 		seperation(word, letters);
 
 		hangmanPrint(errors);
-		
+		print(letters, guessed);
+		System.out.print("\nEnter the letter: ");
+		char guess = s.next().charAt(0);
+
 	}
 
 }
