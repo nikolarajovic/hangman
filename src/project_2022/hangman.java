@@ -10,6 +10,17 @@ public class hangman {
 		}
 	}
 	
+	public static void print(char[] letters, boolean[] guessed) {
+		for (int i = 0; i < letters.length; i++) {
+			if (guessed[i] == false) {
+				System.out.print("_ ");
+			} else {
+				System.out.print(letters[i] + " ");
+			}
+		}
+		System.out.println();
+	}
+	
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("*** WELCOME TO HANGMAN ***");
