@@ -157,6 +157,16 @@ public class hangman {
 
 		}
 
+		if (errors == 6) {
+			hangmanPrint(errors);
+			print(letters, guessed);
+			System.out.println("\nSorry man, you are dead.");
+		} else {
+			hangmanPrint(errors);
+			print(letters, guessed);
+			System.out.println("\nWINNER WINNER CHICKEN DINNER!");
+		}
+
 	}
 
 }
