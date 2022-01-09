@@ -9,7 +9,7 @@ public class hangman {
 			letters[i] = word.charAt(i);
 		}
 	}
-	
+
 	public static void print(char[] letters, boolean[] guessed) {
 		for (int i = 0; i < letters.length; i++) {
 			if (guessed[i] == false) {
@@ -20,7 +20,7 @@ public class hangman {
 		}
 		System.out.println();
 	}
-	
+
 	public static void hangmanPrint(int error) {
 		switch (error) {
 		case 0:
@@ -97,7 +97,7 @@ public class hangman {
 			break;
 		}
 	}
-	
+
 	public static void bingo(char guess, char[] letters, boolean[] guessed) {
 		for (int i = 0; i < guessed.length; i++) {
 			if (guess == letters[i]) {
@@ -105,7 +105,7 @@ public class hangman {
 			}
 		}
 	}
-	
+
 	public static boolean isGuessed(char guess, char[] letters) {
 		int count = 0;
 		for (int i = 0; i < letters.length; i++) {
@@ -119,7 +119,16 @@ public class hangman {
 			return false;
 		}
 	}
-	
+
+	public static boolean isWinner(boolean[] guessed) {
+		for (int i = 0; i < guessed.length; i++) {
+			if (guessed[i] == false) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("*** WELCOME TO HANGMAN ***");
@@ -134,10 +143,19 @@ public class hangman {
 
 		seperation(word, letters);
 
-		hangmanPrint(errors);
-		print(letters, guessed);
-		System.out.print("\nEnter the letter: ");
-		char guess = s.next().charAt(0);
+		while (isWinner(guessed) == false && errors != 6) {
+			hangmanPrint(errors);
+			print(letters, guessed);
+			System.out.print("\nEnter the letter: ");
+			char guess = s.next().charAt(0);
+
+			if (isGuessed(guess, letters) == true) {
+				bingo(guess, letters, guessed);
+			} else {
+				errors++;
+			}
+
+		}
 
 	}
 
