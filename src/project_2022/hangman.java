@@ -106,6 +106,20 @@ public class hangman {
 		}
 	}
 	
+	public static boolean isGuessed(char guess, char[] letters) {
+		int count = 0;
+		for (int i = 0; i < letters.length; i++) {
+			if (guess == letters[i]) {
+				count++;
+			}
+		}
+		if (count > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("*** WELCOME TO HANGMAN ***");
