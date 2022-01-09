@@ -21,6 +21,83 @@ public class hangman {
 		System.out.println();
 	}
 	
+	public static void hangmanPrint(int error) {
+		switch (error) {
+		case 0:
+			System.out.println("_____________");
+			System.out.println("|           |");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println();
+			break;
+		case 1:
+			System.out.println("_____________");
+			System.out.println("|           |");
+			System.out.println("|           O");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println();
+			break;
+		case 2:
+			System.out.println("_____________");
+			System.out.println("|           |");
+			System.out.println("|           O");
+			System.out.println("|           |");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println();
+			break;
+		case 3:
+			System.out.println("_____________");
+			System.out.println("|           |");
+			System.out.println("|           O");
+			System.out.println("|        ---|");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println();
+			break;
+		case 4:
+			System.out.println("_____________");
+			System.out.println("|           |");
+			System.out.println("|           O");
+			System.out.println("|        ---|---");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println("|            ");
+			System.out.println();
+			break;
+		case 5:
+			System.out.println("_____________");
+			System.out.println("|           |");
+			System.out.println("|           O");
+			System.out.println("|        ---|---");
+			System.out.println("|          / ");
+			System.out.println("|         /  ");
+			System.out.println("|            ");
+			System.out.println();
+			break;
+		case 6:
+			System.out.println("_____________");
+			System.out.println("|           |");
+			System.out.println("|           O");
+			System.out.println("|        ---|---");
+			System.out.println("|          / \\");
+			System.out.println("|         /   \\");
+			System.out.println("|            ");
+			System.out.println();
+			break;
+		default:
+			break;
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("*** WELCOME TO HANGMAN ***");
@@ -31,7 +108,12 @@ public class hangman {
 
 		boolean[] guessed = new boolean[word.length()];
 
+		int errors = 0;
+
 		seperation(word, letters);
+
+		hangmanPrint(errors);
+		
 	}
 
 }
